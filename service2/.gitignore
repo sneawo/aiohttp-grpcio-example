@@ -1,0 +1,11 @@
+env
+.env
+.idea
+*.iml
+.vscode
+.coverage
+.pytest_cache
+.mypy_cache
+.ipynb_checkpoints
+*.pyc
+__pycache__

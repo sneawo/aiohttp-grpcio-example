@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package app.grpc;
+
+service Service1 {
+  rpc ProcessName (ProcessNameRequest) returns (ProcessNameResponse) {}
+}
+
+message ProcessNameRequest {
+  string name = 1;
+}
+
+message ProcessNameResponse {
+  string name = 1;
+}

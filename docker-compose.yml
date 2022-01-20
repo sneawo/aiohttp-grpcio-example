@@ -1,0 +1,18 @@
+version: "3.6"
+services:
+  service1:
+    build: service1
+    command: sh -c "watchmedo auto-restart -d app -p '*.py' -- python -m app.main"
+    volumes:
+      - ./service1:/app
+    ports:
+      - 8080:8080
+    restart: on-failure
+  service2:
+    build: service2
+    command: sh -c "watchmedo auto-restart -d app -p '*.py' -- python -m app.main"
+    volumes:
+      - ./service2:/app
+    ports:
+      - 8081:8080
+    restart: on-failure
