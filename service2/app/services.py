@@ -7,8 +7,7 @@ logger = logging.getLogger(__name__)
 
 
 async def say_hello(*, app: aiohttp.web.Application, name: str) -> str:
-    stub = service1_pb2_grpc.Service1Stub(app["grpc_channel_service1"])
-    name_response = await stub.ProcessName(service1_pb2.ProcessNameRequest(name=name), timeout=10)
+    name_response = await app["service1_stub"].ProcessName(service1_pb2.ProcessNameRequest(name=name), timeout=10)
     hello = f"Hello, {name_response.name}!"
     logger.info(f"action=say_hello, status=success, hello={hello}")
     return hello
